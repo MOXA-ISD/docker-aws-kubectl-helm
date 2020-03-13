@@ -6,4 +6,4 @@ Available from docker hub as [thingsprosre/awscli-kubectl-helm](https://hub.dock
 
 ## Usage
 
-    docker run --rm thingsprosre/awscli-kubectl-helm bash
+    docker run -it --rm thingsprosre/awscli-kubectl-helm bash
