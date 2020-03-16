@@ -2,17 +2,26 @@ FROM alpine:3.11
 
 LABEL maintainer ThingsPro SRE Team <thingspro.sre@moxa.com>
 
+COPY project.ini /
+
+# install dependancies
 RUN apk --update add --no-cache bash curl make git ca-certificates groff less python py-pip && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf /var/cache/apk/*
 
-RUN pip install awscli
+# install awscli
+RUN export $(egrep -v '^#' /project.ini | xargs) && \
+    pip install awscli==$AWSCLI_VERSION
 
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl && \
+# install kubectl
+RUN export $(egrep -v '^#' /project.ini | xargs) && \
+    curl -LO https://storage.googleapis.com/kubernetes-release/release/$KUBECTL_VERSION/bin/linux/amd64/kubectl && \
     chmod u+x kubectl && \
     mv kubectl /bin/kubectl
 
-RUN curl -L https://get.helm.sh/helm-v3.1.1-linux-amd64.tar.gz |tar xvz && \
+# install helm
+RUN export $(egrep -v '^#' /project.ini | xargs) && \
+    curl -L https://get.helm.sh/helm-$HELM_VERSION-linux-amd64.tar.gz |tar xvz && \
     mv linux-amd64/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
     rm -rf linux-amd64
