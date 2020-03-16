@@ -2,7 +2,7 @@
 # HELP
 .PHONY: help
 
-PROJECT_CONFIG ?= project.ini
+PROJECT_CONFIG ?= config.ini
 include $(PROJECT_CONFIG)
 export $(shell sed 's/=.*//' $(PROJECT_CONFIG))
 

@@ -7,3 +7,20 @@ Available from docker hub as [thingsprosre/awscli-kubectl-helm](https://hub.dock
 ## Usage
 
     docker run -it --rm thingsprosre/awscli-kubectl-helm bash
+
+
+## Development
+
+### Modify config
+
+You can modify or update tools version in config.ini before build image
+
+### Instruction
+
+```bash
+# build image
+make build
+
+# publish image
+make publish
+```
