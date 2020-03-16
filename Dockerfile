@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-LABEL maintainer Justin Liu <justintwd@gmail.com>
+LABEL maintainer ThingsPro SRE Team <thingspro.sre@moxa.com>
 
 RUN apk --update add --no-cache bash curl make git ca-certificates groff less python py-pip && \
     rm -rf /var/lib/apt/lists/* && \
