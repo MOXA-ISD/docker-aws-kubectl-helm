@@ -8,8 +8,13 @@ Available from docker hub as [thingsprosre/awscli-kubectl-helm](https://hub.dock
 
     docker run -it --rm thingsprosre/awscli-kubectl-helm bash
 
-
 ## Development
+
+### Clone
+
+```bash
+git clone git@github.com:MOXA-ISD/docker-awscli-kubectl-helm.git
+```
 
 ### Modify config
 
