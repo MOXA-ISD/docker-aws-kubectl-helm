@@ -26,6 +26,9 @@ You can modify or update tools version in config.ini before build image
 # build image
 make build
 
+# run and attach image for test
+make run
+
 # publish image
 make publish
 ```

@@ -8,6 +8,7 @@ export $(shell sed 's/=.*//' $(PROJECT_CONFIG))
 
 # alias
 b: build
+r: run
 p: push
 c: clean
 
@@ -20,6 +21,8 @@ build: ## Build image, alias: b
 	@docker build -f Dockerfile . -t $(ORG_NAME)/$(IMAGE):latest
 	@docker tag $(ORG_NAME)/$(IMAGE):latest $(ORG_NAME)/$(IMAGE):$(VERSION)
 
+run: ## Run image, alias r
+	@docker run -it $(ORG_NAME)/$(IMAGE):latest bash
 
 push: ## Push image, alias: p
 	@docker push $(ORG_NAME)/$(IMAGE):latest
